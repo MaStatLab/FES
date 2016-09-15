@@ -2,7 +2,7 @@ Package: FES
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1
-Date: 2016-04-28
+Date: 2016-09-15
 Author: Li Ma <li.ma@duke.edu>
 Maintainer: Li Ma <li.ma@duke.edu>
 Description: R package for "Fisher exact scanning for dependency" 
