@@ -1,4 +1,4 @@
-fisherScan = function(x,y,K1=7,K2=7,rank.transform=TRUE,plot.it=FALSE,plot.sidek=FALSE,plot.scale=FALSE,output.to.files=FALSE,mid.p=TRUE,compute.bf=FALSE,verbose=FALSE,fixed.R=FALSE,R=NULL) {
+fisherScan = function(x,y,K1=7,K2=7,fixed.M=FALSE,M=NULL,rank.transform=TRUE,plot.it=FALSE,plot.sidek=FALSE,plot.scale=FALSE,output.to.files=FALSE,mid.p=TRUE,compute.bf=FALSE,verbose=FALSE) {
   
   ## Preprocessing: marginally rank transform the data
  
@@ -84,8 +84,8 @@ fisherScan = function(x,y,K1=7,K2=7,rank.transform=TRUE,plot.it=FALSE,plot.sidek
   p.bonferroni.stratum[pvals.mat[,1]==Inf] = Inf
   p.min.stratum = pvals.mat[,1]
   
-  if (is.null(R)) R = K1+K2-1
-  else R = min(K1+K2-1,R)
+  if (is.null(M)) R = K1+K2-1
+  else R = min(K1+K2-1,M+1)
   
   T = double(R)
   
@@ -127,7 +127,7 @@ fisherScan = function(x,y,K1=7,K2=7,rank.transform=TRUE,plot.it=FALSE,plot.sidek
     print(cbind(p.sidek.resol,p.bonferroni.resol,p.min.resol,T))
   }
   ## Global
-  if (!fixed.R) R1 = sum(T>0)
+  if (!fixed.M) R1 = sum(T>0)
   else R1 = min(R,max(T>0))
   
   p.sidek.global = 1 - (1 - min(p.sidek.resol))^R1
