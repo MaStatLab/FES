@@ -106,7 +106,7 @@ fisherScan = function(x,y,K1=7,K2=7,fixed.M=FALSE,M=NULL,rank.transform=TRUE,plo
       p.bonferroni.resol.curr = min(p.bonferroni.resol.curr,p.bonferroni.stratum[stratum.curr])
       p.min.resol.curr = min(p.min.resol.curr, p.min.stratum[stratum.curr])
       
-      if (p.sidek.resol.curr != Inf) {
+      if (min(p.sidek.stratum[stratum.curr]) != Inf) {
         T[r+1] = T[r+1] + 1
       }
     }
