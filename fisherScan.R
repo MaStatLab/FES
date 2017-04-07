@@ -127,8 +127,8 @@ fisherScan = function(x,y,K1=7,K2=7,fixed.M=FALSE,M=NULL,rank.transform=TRUE,plo
     print(cbind(p.sidek.resol,p.bonferroni.resol,p.min.resol,T))
   }
   ## Global
-  if (!fixed.M) R1 = sum(T>0)
-  else R1 = min(R,max(T>0))
+  if (!fixed.M) R1 = sum()
+  else R1 = min(R,max(which(T>0)))
   
   p.sidek.global = 1 - (1 - min(p.sidek.resol))^R1
   p.bonferroni.global = min(p.bonferroni.resol)*R1
